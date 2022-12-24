@@ -60,7 +60,8 @@ namespace cleantalk.csharp.test
             Debug.WriteLine("feedbackResp=" + WebHelper.JsonSerialize(feedbackResp));
 
             Assert.IsNotNull(feedbackResp);
-            Assert.IsNotNullOrEmpty(feedbackResp.Comment);
+            Assert.IsNotNull(feedbackResp.Comment);
+            Assert.IsNotEmpty(feedbackResp.Comment);
             Assert.IsTrue(feedbackResp.Received.GetValueOrDefault());
         }
 

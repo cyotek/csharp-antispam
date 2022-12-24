@@ -31,13 +31,15 @@ namespace cleantalk.csharp.test
             Debug.WriteLine("req1=" + WebHelper.JsonSerialize(req1));
             Debug.WriteLine("res1=" + WebHelper.JsonSerialize(res1));
             Assert.IsNotNull(res1);
-            Assert.IsNotNullOrEmpty(res1.Id);
+            Assert.IsNotNull(res1.Id);
+            Assert.IsNotEmpty(res1.Id);
             Assert.AreEqual(0, res1.IsInactive);
             Assert.IsTrue(res1.IsAllow.GetValueOrDefault());
-            Assert.IsNotNullOrEmpty(res1.Comment);
+            Assert.IsNotNull(res1.Comment);
+            Assert.IsNotEmpty(res1.Comment);
         }
 
-        [Test]
+    [Test]
         public void StopEmailMessageTest()
         {
             var req1 = new CleantalkRequest(TestConstants.AuthKey)
@@ -60,13 +62,15 @@ namespace cleantalk.csharp.test
             Debug.WriteLine("res1=" + WebHelper.JsonSerialize(res1));
 
             Assert.IsNotNull(res1);
-            Assert.IsNotNullOrEmpty(res1.Id);
+            Assert.IsNotNull(res1.Id);
+            Assert.IsNotEmpty(res1.Id);
             Assert.AreEqual(0, res1.IsInactive);
             Assert.IsFalse(res1.IsAllow.GetValueOrDefault());
-            Assert.IsNotNullOrEmpty(res1.Comment);
+            Assert.IsNotNull(res1.Comment);
+            Assert.IsNotEmpty(res1.Comment);
         }
 
-        [Test]
+    [Test]
         public void StopWordMessageTest()
         {
             var req1 = new CleantalkRequest(TestConstants.AuthKey)
@@ -93,14 +97,16 @@ namespace cleantalk.csharp.test
             Debug.WriteLine("res1=" + WebHelper.JsonSerialize(res1));
 
             Assert.IsNotNull(res1);
-            Assert.IsNotNullOrEmpty(res1.Id);
+            Assert.IsNotNull(res1.Id);
+            Assert.IsNotEmpty(res1.Id);
             Assert.AreEqual(0, res1.IsInactive);
             Assert.IsFalse(res1.IsAllow.GetValueOrDefault());
             Assert.IsTrue(res1.IsSpam.GetValueOrDefault());
-            Assert.IsNotNullOrEmpty(res1.Comment);
+            Assert.IsNotNull(res1.Comment);
+            Assert.IsNotEmpty(res1.Comment);
         }
 
-        [SetUp]
+    [SetUp]
         protected void SetUp()
         {
             _cleantalk = new Cleantalk();
