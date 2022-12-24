@@ -161,20 +161,21 @@ namespace cleantalk.csharp
                 webClient.Encoding = Encoding.UTF8;
 
                 //get headers from httpContext
-                var context = HttpContext.Current;
-                if (context != null)
-                {
-                    var customRestrictedHeaders = new[] { "Content-Length", "Connection", "Cookie" };
-                    var headers = context.Request.Headers;
-                    foreach (var v in headers.Keys.Cast<string>()
-                                        .Select(x => new { key = x, value = headers[x] })
-                                        .Where(x => 
-                                            !customRestrictedHeaders.Contains(x.key) &&
-                                            !WebHeaderCollection.IsRestricted(x.key)))
-                    {
-                        webClient.Headers.Add(v.key, v.value);
-                    }
-                }
+                // TODO: ## BROKE
+                //var context = HttpContext.Current;
+                //if (context != null)
+                //{
+                //    var customRestrictedHeaders = new[] { "Content-Length", "Connection", "Cookie" };
+                //    var headers = context.Request.Headers;
+                //    foreach (var v in headers.Keys.Cast<string>()
+                //                        .Select(x => new { key = x, value = headers[x] })
+                //                        .Where(x => 
+                //                            !customRestrictedHeaders.Contains(x.key) &&
+                //                            !WebHeaderCollection.IsRestricted(x.key)))
+                //    {
+                //        webClient.Headers.Add(v.key, v.value);
+                //    }
+                //}
 
                 webClient.Headers[HttpRequestHeader.ContentType] = @"application/x-www-form-urlencoded";
 
